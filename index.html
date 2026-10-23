@@ -25,9 +25,9 @@
   <meta property="og:url" content="https://evo-home-care.vercel.app/">
   <meta property="og:image" content="https://evo-home-care.vercel.app/img/logo-evo.jpg">
 
-  <!-- Preload Hero -->
-  <link rel="preload" as="image" href="img/hero-spa-mobile.jpg" media="(max-width: 768px)" fetchpriority="high">
-  <link rel="preload" as="image" href="img/hero-spa-4k.jpg" media="(min-width: 769px)" fetchpriority="high">
+  <!-- Preload Hero 4K -->
+  <link rel="preload" as="image" href="img/hero-spa-mobile.webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="img/hero-spa-4k.webp" media="(min-width: 769px)" fetchpriority="high">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1608,8 +1608,9 @@
   <section class="hero" id="topo">
     <div class="hero-media">
       <picture>
-        <source media="(max-width: 768px)" srcset="img/hero-spa-mobile.jpg">
-        <img src="img/hero-spa-4k.jpg" alt="Atendimento de massoterapia integrativa e spa Home Care — Evo Care" width="2400" height="1600" fetchpriority="high" decoding="async" id="heroImg">
+        <source media="(max-width: 768px)" srcset="img/hero-spa-mobile.webp" type="image/webp">
+        <source media="(min-width: 769px)" srcset="img/hero-spa-4k.webp" type="image/webp">
+        <img src="img/hero-spa-4k.jpg" alt="Atendimento de massoterapia integrativa e spa Home Care — Evo Care" width="3840" height="2160" fetchpriority="high" decoding="async" id="heroImg">
       </picture>
     </div>
     <div class="hero-scrim"></div>
@@ -1813,14 +1814,17 @@
         </div>
       </div>
 
-      <!-- CARDS DOS 4 PROTOCOLOS PRINCIPAIS (FOTOS REAIS DO LINKTREE/CATÁLOGO) -->
+      <!-- CARDS DOS 4 PROTOCOLOS PRINCIPAIS (FOTOS REAIS DO LINKTREE/CATÁLOGO EM UHD) -->
       <div class="protocols-grid" id="protocolos">
         <!-- 1. Técnica Desportista -->
         <div class="protocol-shell reveal">
           <article class="protocol-card">
             <div class="protocol-photo">
               <span class="protocol-badge">Performance &amp; Soltura</span>
-              <img src="img/tecnica-desportista-hd.jpg" alt="Técnica desportista de relaxamento Evo Care" loading="lazy" data-lightbox>
+              <picture>
+                <source srcset="img/tecnica-desportista-hd.webp" type="image/webp">
+                <img src="img/tecnica-desportista-hd.jpg" alt="Técnica desportista de relaxamento Evo Care" width="1800" height="1800" loading="lazy" data-lightbox>
+              </picture>
             </div>
             <div class="protocol-body">
               <div>
@@ -1847,7 +1851,10 @@
           <article class="protocol-card">
             <div class="protocol-photo">
               <span class="protocol-badge">Terapia Profunda</span>
-              <img src="img/liberacao-miofascial-hd.jpg" alt="Liberação Miofascial Evo Care" loading="lazy" data-lightbox>
+              <picture>
+                <source srcset="img/liberacao-miofascial-hd.webp" type="image/webp">
+                <img src="img/liberacao-miofascial-hd.jpg" alt="Liberação Miofascial Evo Care" width="1800" height="1800" loading="lazy" data-lightbox>
+              </picture>
             </div>
             <div class="protocol-body">
               <div>
@@ -1874,7 +1881,10 @@
           <article class="protocol-card">
             <div class="protocol-photo">
               <span class="protocol-badge">Aromaterapia &amp; Paz</span>
-              <img src="img/massagem-relaxante.jpg" alt="Massagem Relaxante com óleos essenciais Evo Care" loading="lazy" data-lightbox>
+              <picture>
+                <source srcset="img/massagem-relaxante-hd.webp" type="image/webp">
+                <img src="img/massagem-relaxante.jpg" alt="Massagem Relaxante com óleos essenciais Evo Care" width="1800" height="1800" loading="lazy" data-lightbox>
+              </picture>
             </div>
             <div class="protocol-body">
               <div>
@@ -1901,7 +1911,10 @@
           <article class="protocol-card">
             <div class="protocol-photo">
               <span class="protocol-badge">Sessão de 1 Hora</span>
-              <img src="img/drenagem-linfatica-hd.jpg" alt="Drenagem Linfática 1h Evo Care" loading="lazy" data-lightbox>
+              <picture>
+                <source srcset="img/drenagem-linfatica-hd.webp" type="image/webp">
+                <img src="img/drenagem-linfatica-hd.jpg" alt="Drenagem Linfática 1h Evo Care" width="1800" height="1800" loading="lazy" data-lightbox>
+              </picture>
             </div>
             <div class="protocol-body">
               <div>
