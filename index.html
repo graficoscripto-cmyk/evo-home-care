@@ -9,6 +9,7 @@
   <meta name="theme-color" content="#161A11">
   <link rel="canonical" href="https://evo-home-care.vercel.app/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <!-- Open Graph / WhatsApp -->
   <meta property="og:type" content="website">
@@ -17,7 +18,11 @@
   <meta property="og:title" content="Evo Care — Massoterapia Integrativa &amp; Home Care">
   <meta property="og:description" content="Atendimento Home Care em São Paulo, Ilhabela e Ibiza. Liberação miofascial, técnica desportista, massagem relaxante e drenagem linfática.">
   <meta property="og:url" content="https://evo-home-care.vercel.app/">
-  <meta property="og:image" content="https://evo-home-care.vercel.app/img/logo-evo.jpg">
+  <meta property="og:image" content="https://evo-home-care.vercel.app/img/og-evo.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo Evo Care: flor de lótus sobre duas mãos">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preload" as="image" href="img/hero-spa-mobile.webp" media="(max-width: 768px)" fetchpriority="high">
   <link rel="preload" as="image" href="img/hero-spa-4k.webp" media="(min-width: 769px)" fetchpriority="high">
@@ -34,7 +39,8 @@
     "description": "Massoterapia integrativa, estética avançada e nutrição esportiva com atendimento Home Care em São Paulo, Ilhabela e Ibiza.",
     "url": "https://evo-home-care.vercel.app/",
     "telephone": "+55-11-97983-3078",
-    "image": "https://evo-home-care.vercel.app/img/logo-evo.jpg",
+    "image": "https://evo-home-care.vercel.app/img/og-evo.jpg",
+    "logo": "https://evo-home-care.vercel.app/img/logo-evo.svg",
     "areaServed": ["São Paulo", "Ilhabela", "Ibiza"],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -125,14 +131,16 @@
     }
 
     /* Lótus da marca (desenha a linha) */
-    .lotus path {
-      fill: none;
-      stroke: var(--sage);
-      stroke-width: 2.2;
+    .lotus {
+      color: var(--sage);
+      stroke-width: 5;
       stroke-linejoin: round;
       stroke-dasharray: 1;
       stroke-dashoffset: 1;
+      fill-opacity: 0;
+      overflow: visible;
     }
+    @keyframes fillIn { to { fill-opacity: 1; } }
 
     /* Abertura */
     .intro {
@@ -146,10 +154,8 @@
       text-align: center;
       animation: introOut 0.8s var(--spring) 1s forwards;
     }
-    .intro .lotus { width: 120px; height: 80px; margin: 0 auto 14px; }
-    .intro .lotus path { animation: draw 1.3s var(--ease) forwards; }
-    .intro .lotus path:nth-child(2), .intro .lotus path:nth-child(3) { animation-delay: 0.12s; }
-    .intro .lotus path:nth-child(4), .intro .lotus path:nth-child(5) { animation-delay: 0.24s; }
+    .intro .lotus { width: 120px; height: 92px; margin: 0 auto 14px; }
+    .intro .lotus { animation: draw 1s var(--ease) forwards, fillIn 0.4s ease 0.75s forwards; }
     .intro b {
       font-family: 'EB Garamond', serif;
       font-weight: 500;
@@ -362,6 +368,7 @@
       width: 100%;
       padding-top: 58svh;
     }
+    .loc-pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--clay); }
     .loc-pill {
       display: inline-flex;
       align-items: center;
@@ -469,7 +476,7 @@
         opacity: 0.12;
         pointer-events: none;
       }
-      .hero-lotus path { stroke-width: 1.2; animation: draw 2.4s var(--ease) 1.6s forwards; }
+      .hero-lotus { stroke-width: 3; animation: draw 2.4s var(--ease) 1.6s forwards, fillIn 1s ease 3.4s forwards; }
     }
 
     /* Faixa */
@@ -490,7 +497,7 @@
       font-weight: 600;
     }
     .marquee-track span { display: inline-flex; align-items: center; gap: 30px; padding-right: 30px; white-space: nowrap; }
-    .marquee-track span::after { content: "✦"; font-style: normal; color: var(--sand); font-size: 12px; }
+    .marquee-track span::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--sand); }
     @keyframes marquee { to { transform: translateX(-50%); } }
 
     /* MASSAGENS */
@@ -627,7 +634,7 @@
     }
     .cities span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--clay); }
     .steps-lotus { position: absolute; right: -80px; top: 40px; width: 360px; height: 240px; opacity: 0.1; pointer-events: none; }
-    .steps-lotus path { stroke-width: 1.2; }
+    .steps-lotus { stroke-width: 3; }
 
     /* ESPECIALIDADES */
     .perks-sec { background: linear-gradient(180deg, var(--mist) 0%, var(--paper) 100%); }
@@ -678,6 +685,8 @@
     .planner h3 { font-size: clamp(24px, 5vw, 32px); color: var(--abyss); margin: 4px 0 18px; }
     @media (min-width: 960px) { .p-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0 40px; } }
     .p-step { padding: 16px 0; border-top: 1px solid var(--line); }
+    .p-grid > div:first-child > .p-step:first-child { border-top: 0; padding-top: 0; }
+    @media (min-width: 960px) { .p-grid > div > .p-step:first-child { border-top: 0; padding-top: 0; } }
     .p-label { display: block; font-weight: 700; font-size: 13.5px; color: var(--muted); margin-bottom: 10px; }
     .p-opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .p-opts-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -756,8 +765,8 @@
       background: linear-gradient(180deg, rgba(22, 26, 17, 0.7) 0%, rgba(22, 26, 17, 0.5) 45%, rgba(22, 26, 17, 0.88) 100%);
     }
     .final .wrap { position: relative; z-index: 2; }
-    .final .lotus { width: 90px; height: 60px; margin: 0 auto 18px; display: block; }
-    .final .lotus path { stroke: var(--sage-light); }
+    .final .lotus { width: 90px; height: 69px; margin: 0 auto 18px; display: block; }
+    .final .lotus { color: var(--sage-light); }
     .final h2 {
       font-size: clamp(36px, 9vw, 70px);
       text-wrap: balance;
@@ -777,7 +786,8 @@
     @media (min-width: 960px) { footer { padding-bottom: 44px; } }
     .foot { display: grid; gap: 24px; }
     @media (min-width: 860px) { .foot { grid-template-columns: 1.4fr 1fr 1fr; align-items: start; } }
-    .foot .brand b { color: var(--cream); font-size: 21px; }
+    .foot-logo { display: inline-block; }
+    .foot-logo img { width: 104px; height: auto; }
     .foot p { margin-top: 10px; max-width: 32ch; }
     .foot h4 { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 10px; }
     .foot ul { list-style: none; display: grid; gap: 6px; }
@@ -816,7 +826,7 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
       .intro { display: none; }
-      .lotus path { stroke-dashoffset: 0; }
+      .lotus { stroke-dashoffset: 0; fill-opacity: 1; }
     }
     /* ===== Android primeiro (24/10): sem vidro/grão no toque, alvos de 44px+, revelação sem depender do CDN ===== */
     html { -webkit-tap-highlight-color: transparent; }
@@ -853,10 +863,11 @@
   </style>
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lt" viewBox="0 0 610 467"><path class="lf" fill="currentColor" stroke="none" fill-rule="evenodd" d="M4 222L4 238L5 239L5 252L6 254L7 272L8 273L10 290L12 294L13 302L15 307L16 314L25 338L32 352L36 355L40 364L46 370L48 376L54 381L56 384L82 408L108 426L128 436L148 444L178 454L182 454L190 457L196 457L206 460L214 460L216 461L231 462L232 463L286 463L288 462L297 462L298 461L310 461L312 462L321 462L322 463L376 463L378 462L403 460L408 458L420 457L432 454L436 452L443 451L446 449L458 446L484 435L507 422L531 406L548 390L564 372L578 352L592 322L598 298L600 289L602 284L602 277L604 270L606 238L606 236L606 222L605 224L602 226L598 232L590 239L590 242L573 258L570 259L565 264L549 275L538 280L516 288L514 288L512 287L512 281L514 278L514 272L518 258L518 250L518 248L518 239L520 238L520 189L518 188L518 178L518 176L516 162L514 159L516 152L512 140L512 134L510 124L510 118L506 108L506 104L505 102L496 104L493 106L486 106L468 112L464 114L462 114L458 116L456 116L430 126L400 142L397 142L396 142L384 119L371 98L368 92L366 90L363 84L361 82L351 66L342 54L338 47L322 26L320 22L312 14L310 9L306 4L302 7L296 16L288 26L286 30L282 34L278 42L272 48L258 67L256 72L254 73L252 78L244 90L242 94L238 100L234 106L232 108L232 112L224 122L215 142L213 143L210 142L205 139L182 128L178 126L168 122L160 120L149 114L142 114L140 112L134 110L120 106L116 106L114 104L105 102L104 104L104 108L101 117L101 122L99 126L98 138L96 143L96 150L93 165L93 176L91 183L91 244L93 251L93 258L96 273L96 278L98 284L98 287L96 288L94 289L91 286L88 286L74 282L60 274L44 263L21 242L18 237L12 232L10 227ZM592 260L590 282L585 302L583 305L583 308L570 340L562 352L558 357L548 370L526 393L512 403L509 406L493 416L474 426L460 432L438 438L434 440L430 440L426 442L406 446L400 446L394 448L384 448L375 450L370 450L369 449L370 447L373 447L392 440L414 430L440 412L461 392L475 374L489 352L502 324L502 319L504 314L502 314L498 316L494 316L490 318L478 346L466 366L456 376L456 378L448 386L444 390L426 406L414 413L413 415L382 430L380 430L365 436L362 436L359 438L348 440L343 442L334 444L334 442L338 438L340 436L344 432L347 430L350 426L355 424L383 394L404 364L418 336L418 334L416 332L402 338L392 360L390 362L384 372L370 388L370 390L350 409L348 413L346 414L340 420L338 421L333 426L328 429L327 429L326 427L332 412L334 397L339 387L355 364L376 344L379 344L384 338L398 332L418 323L446 316L450 316L460 313L466 313L470 310L481 310L484 308L490 308L500 305L503 305L528 298L534 295L541 293L563 282L564 280L573 274L576 272L581 268L590 260L592 259ZM18 260L19 259L21 260L30 270L35 272L42 278L54 286L74 295L77 295L86 299L92 300L96 302L103 303L116 307L126 308L130 310L141 311L146 313L157 314L162 316L166 316L170 318L174 318L186 321L190 323L196 324L219 334L235 344L256 364L256 366L260 370L262 374L264 376L273 390L279 409L279 412L284 427L283 429L272 422L263 412L260 411L256 406L255 404L241 390L240 388L227 372L222 363L220 362L208 338L192 332L192 334L197 345L197 348L204 362L216 378L224 389L228 394L232 398L232 400L258 426L260 426L266 434L276 440L278 442L276 444L268 442L263 440L254 440L239 434L236 434L202 418L176 400L154 378L147 367L144 364L133 346L120 318L118 316L112 316L106 314L107 318L115 337L115 340L128 362L130 364L136 374L142 381L142 384L148 388L148 390L170 412L194 428L224 442L236 447L240 447L241 449L239 450L236 450L235 450L228 450L226 448L216 448L212 446L198 446L194 444L180 442L170 438L168 438L136 426L110 412L101 404L94 401L78 386L61 370L42 342L34 326L26 302L26 299L22 290L22 286L20 282L20 269ZM495 118L498 123L499 134L502 146L502 152L504 159L504 166L505 168L506 190L507 191L507 236L506 237L506 246L505 248L504 264L503 265L502 276L499 285L498 292L495 294L484 296L481 298L476 298L470 300L454 302L448 304L436 304L433 306L428 306L427 306L427 303L428 300L430 281L430 280L430 255L430 254L428 237L426 230L426 221L422 210L422 206L420 202L418 195L416 190L416 187L410 176L410 173L406 165L404 164L396 169L396 172L400 181L400 184L405 195L405 198L410 211L410 214L413 223L413 228L415 232L416 246L417 247L418 280L417 281L416 296L413 310L410 312L408 312L396 318L370 331L366 336L358 341L347 353L344 358L341 360L340 359L340 336L340 334L340 323L338 316L336 304L334 300L334 295L332 292L332 285L322 258L318 251L316 252L312 259L310 266L318 284L319 290L323 302L326 317L326 322L327 324L328 356L327 357L326 380L324 384L324 388L313 410L307 428L304 429L302 426L300 415L292 397L288 390L284 380L284 371L282 362L282 332L284 330L284 323L284 322L284 315L286 310L286 304L292 284L294 280L300 265L309 246L326 221L338 208L339 206L349 197L354 190L357 190L366 180L387 166L388 164L416 148L436 138L441 137L448 133L461 129L470 125L476 124L478 122ZM115 118L118 118L126 121L132 122L157 131L168 136L170 136L190 146L196 150L215 160L226 168L230 170L236 176L248 184L252 188L255 190L274 208L274 210L280 215L292 232L297 240L297 244L293 250L284 270L284 272L277 291L271 322L270 359L268 358L262 351L250 339L244 336L238 330L213 316L200 312L198 310L194 296L194 283L192 282L192 256L194 254L194 246L194 244L196 232L198 228L198 218L200 214L202 207L214 172L214 170L206 164L203 166L195 187L195 190L191 199L190 206L188 209L183 230L182 244L180 251L180 284L181 286L182 300L184 305L182 306L178 306L174 304L170 304L153 300L142 300L136 298L130 298L120 294L115 294L112 292L112 285L110 280L106 266L104 238L104 236L104 189L104 188L104 176L106 174L106 159L110 146L110 139L112 134L112 124ZM304 26L308 28L314 36L322 47L336 68L338 69L344 80L348 85L354 94L370 119L386 149L386 151L374 158L368 164L362 167L360 170L352 175L343 185L340 186L318 210L318 212L314 216L308 226L306 228L302 226L295 214L273 189L270 188L261 178L258 177L248 167L225 151L226 146L229 142L237 126L252 102L255 96L264 82L266 80L270 73L274 68L278 61Z"/><path pathLength="1" fill="none" stroke="currentColor" d="M4 222L4 238L5 239L5 252L6 254L7 272L8 273L10 290L12 294L13 302L15 307L16 314L25 338L32 352L36 355L40 364L46 370L48 376L54 381L56 384L82 408L108 426L128 436L148 444L178 454L182 454L190 457L196 457L206 460L214 460L216 461L231 462L232 463L286 463L288 462L297 462L298 461L310 461L312 462L321 462L322 463L376 463L378 462L403 460L408 458L420 457L432 454L436 452L443 451L446 449L458 446L484 435L507 422L531 406L548 390L564 372L578 352L592 322L598 298L600 289L602 284L602 277L604 270L606 238L606 236L606 222L605 224L602 226L598 232L590 239L590 242L573 258L570 259L565 264L549 275L538 280L516 288L514 288L512 287L512 281L514 278L514 272L518 258L518 250L518 248L518 239L520 238L520 189L518 188L518 178L518 176L516 162L514 159L516 152L512 140L512 134L510 124L510 118L506 108L506 104L505 102L496 104L493 106L486 106L468 112L464 114L462 114L458 116L456 116L430 126L400 142L397 142L396 142L384 119L371 98L368 92L366 90L363 84L361 82L351 66L342 54L338 47L322 26L320 22L312 14L310 9L306 4L302 7L296 16L288 26L286 30L282 34L278 42L272 48L258 67L256 72L254 73L252 78L244 90L242 94L238 100L234 106L232 108L232 112L224 122L215 142L213 143L210 142L205 139L182 128L178 126L168 122L160 120L149 114L142 114L140 112L134 110L120 106L116 106L114 104L105 102L104 104L104 108L101 117L101 122L99 126L98 138L96 143L96 150L93 165L93 176L91 183L91 244L93 251L93 258L96 273L96 278L98 284L98 287L96 288L94 289L91 286L88 286L74 282L60 274L44 263L21 242L18 237L12 232L10 227Z"/><path pathLength="1" fill="none" stroke="currentColor" d="M592 260L590 282L585 302L583 305L583 308L570 340L562 352L558 357L548 370L526 393L512 403L509 406L493 416L474 426L460 432L438 438L434 440L430 440L426 442L406 446L400 446L394 448L384 448L375 450L370 450L369 449L370 447L373 447L392 440L414 430L440 412L461 392L475 374L489 352L502 324L502 319L504 314L502 314L498 316L494 316L490 318L478 346L466 366L456 376L456 378L448 386L444 390L426 406L414 413L413 415L382 430L380 430L365 436L362 436L359 438L348 440L343 442L334 444L334 442L338 438L340 436L344 432L347 430L350 426L355 424L383 394L404 364L418 336L418 334L416 332L402 338L392 360L390 362L384 372L370 388L370 390L350 409L348 413L346 414L340 420L338 421L333 426L328 429L327 429L326 427L332 412L334 397L339 387L355 364L376 344L379 344L384 338L398 332L418 323L446 316L450 316L460 313L466 313L470 310L481 310L484 308L490 308L500 305L503 305L528 298L534 295L541 293L563 282L564 280L573 274L576 272L581 268L590 260L592 259Z"/><path pathLength="1" fill="none" stroke="currentColor" d="M18 260L19 259L21 260L30 270L35 272L42 278L54 286L74 295L77 295L86 299L92 300L96 302L103 303L116 307L126 308L130 310L141 311L146 313L157 314L162 316L166 316L170 318L174 318L186 321L190 323L196 324L219 334L235 344L256 364L256 366L260 370L262 374L264 376L273 390L279 409L279 412L284 427L283 429L272 422L263 412L260 411L256 406L255 404L241 390L240 388L227 372L222 363L220 362L208 338L192 332L192 334L197 345L197 348L204 362L216 378L224 389L228 394L232 398L232 400L258 426L260 426L266 434L276 440L278 442L276 444L268 442L263 440L254 440L239 434L236 434L202 418L176 400L154 378L147 367L144 364L133 346L120 318L118 316L112 316L106 314L107 318L115 337L115 340L128 362L130 364L136 374L142 381L142 384L148 388L148 390L170 412L194 428L224 442L236 447L240 447L241 449L239 450L236 450L235 450L228 450L226 448L216 448L212 446L198 446L194 444L180 442L170 438L168 438L136 426L110 412L101 404L94 401L78 386L61 370L42 342L34 326L26 302L26 299L22 290L22 286L20 282L20 269Z"/><path pathLength="1" fill="none" stroke="currentColor" d="M495 118L498 123L499 134L502 146L502 152L504 159L504 166L505 168L506 190L507 191L507 236L506 237L506 246L505 248L504 264L503 265L502 276L499 285L498 292L495 294L484 296L481 298L476 298L470 300L454 302L448 304L436 304L433 306L428 306L427 306L427 303L428 300L430 281L430 280L430 255L430 254L428 237L426 230L426 221L422 210L422 206L420 202L418 195L416 190L416 187L410 176L410 173L406 165L404 164L396 169L396 172L400 181L400 184L405 195L405 198L410 211L410 214L413 223L413 228L415 232L416 246L417 247L418 280L417 281L416 296L413 310L410 312L408 312L396 318L370 331L366 336L358 341L347 353L344 358L341 360L340 359L340 336L340 334L340 323L338 316L336 304L334 300L334 295L332 292L332 285L322 258L318 251L316 252L312 259L310 266L318 284L319 290L323 302L326 317L326 322L327 324L328 356L327 357L326 380L324 384L324 388L313 410L307 428L304 429L302 426L300 415L292 397L288 390L284 380L284 371L282 362L282 332L284 330L284 323L284 322L284 315L286 310L286 304L292 284L294 280L300 265L309 246L326 221L338 208L339 206L349 197L354 190L357 190L366 180L387 166L388 164L416 148L436 138L441 137L448 133L461 129L470 125L476 124L478 122Z"/><path pathLength="1" fill="none" stroke="currentColor" d="M115 118L118 118L126 121L132 122L157 131L168 136L170 136L190 146L196 150L215 160L226 168L230 170L236 176L248 184L252 188L255 190L274 208L274 210L280 215L292 232L297 240L297 244L293 250L284 270L284 272L277 291L271 322L270 359L268 358L262 351L250 339L244 336L238 330L213 316L200 312L198 310L194 296L194 283L192 282L192 256L194 254L194 246L194 244L196 232L198 228L198 218L200 214L202 207L214 172L214 170L206 164L203 166L195 187L195 190L191 199L190 206L188 209L183 230L182 244L180 251L180 284L181 286L182 300L184 305L182 306L178 306L174 304L170 304L153 300L142 300L136 298L130 298L120 294L115 294L112 292L112 285L110 280L106 266L104 238L104 236L104 189L104 188L104 176L106 174L106 159L110 146L110 139L112 134L112 124Z"/><path pathLength="1" fill="none" stroke="currentColor" d="M304 26L308 28L314 36L322 47L336 68L338 69L344 80L348 85L354 94L370 119L386 149L386 151L374 158L368 164L362 167L360 170L352 175L343 185L340 186L318 210L318 212L314 216L308 226L306 228L302 226L295 214L273 189L270 188L261 178L258 177L248 167L225 151L226 146L229 142L237 126L252 102L255 96L264 82L266 80L270 73L274 68L278 61Z"/></symbol></svg>
 
   <div class="intro" aria-hidden="true">
     <div>
-      <svg class="lotus" viewBox="0 0 120 80"><path pathLength="1" d="M60 6C73 22 73 50 60 72C47 50 47 22 60 6Z"/><path pathLength="1" d="M60 72C44 62 33 44 35 20C50 28 58 46 60 72Z"/><path pathLength="1" d="M60 72C76 62 87 44 85 20C70 28 62 46 60 72Z"/><path pathLength="1" d="M60 72C39 73 17 60 6 40C27 37 48 50 60 72Z"/><path pathLength="1" d="M60 72C81 73 103 60 114 40C93 37 72 50 60 72Z"/></svg>
+      <svg class="lotus" viewBox="0 0 610 467" aria-hidden="true"><use href="#lt"/></svg>
       <b>EVO CARE</b>
     </div>
   </div>
@@ -865,7 +876,7 @@
   <div class="nav-wrap" id="navWrap">
     <nav class="nav" aria-label="Navegação">
       <a href="#topo" class="brand">
-        <img src="img/logo-evo.webp" alt="Logo Evo Care" width="40" height="40">
+        <img src="img/logo-evo-mark.svg" alt="Logo Evo Care" width="40" height="40">
         <b>EVO CARE</b>
       </a>
       <div class="nav-links">
@@ -890,28 +901,16 @@
 
       <div class="wrap hero-content">
         <div>
-          <span class="loc-pill hero-in">✦ Home Care · São Paulo · Ilhabela · Ibiza</span>
+          <span class="loc-pill hero-in">Home Care · São Paulo · Ilhabela · Ibiza</span>
           <h1 class="split">Cuidado integrativo <span class="serif">onde você estiver.</span></h1>
-          <p class="hero-lead hero-in">Massoterapia, estética avançada e nutrição esportiva na sua casa, pousada, hotel ou lancha.</p>
+          <p class="hero-lead hero-in">Massoterapia na sua casa, hotel ou lancha.</p>
           <div class="hero-ctas hero-in">
             <a class="btn btn-sage mag" href="#agendar">Agendar sessão <span class="ico"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
             <a class="btn btn-glass" href="#massagens">Ver massagens</a>
           </div>
         </div>
-
-        <div class="hero-card hero-in">
-          <div class="bezel">
-            <figure class="hero-photo">
-              <picture>
-                <source srcset="img/hero-spa-4k.webp" type="image/webp">
-                <img src="img/hero-spa-4k.jpg" alt="Atendimento de massoterapia Evo Care" width="3840" height="2160" decoding="async">
-              </picture>
-            </figure>
-          </div>
-          <div class="float-chip"><span class="dot ico-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><div><b>Vamos até você</b>maca, enxoval e óleos inclusos</div></div>
-        </div>
       </div>
-      <svg class="lotus hero-lotus" viewBox="0 0 120 80" aria-hidden="true"><path pathLength="1" d="M60 6C73 22 73 50 60 72C47 50 47 22 60 6Z"/><path pathLength="1" d="M60 72C44 62 33 44 35 20C50 28 58 46 60 72Z"/><path pathLength="1" d="M60 72C76 62 87 44 85 20C70 28 62 46 60 72Z"/><path pathLength="1" d="M60 72C39 73 17 60 6 40C27 37 48 50 60 72Z"/><path pathLength="1" d="M60 72C81 73 103 60 114 40C93 37 72 50 60 72Z"/></svg>
+      <svg class="lotus hero-lotus" viewBox="0 0 610 467" aria-hidden="true"><use href="#lt"/></svg>
     </section>
 
     <div class="marquee" aria-hidden="true">
@@ -939,7 +938,7 @@
               <div class="m-body">
                 <div>
                   <h3>Técnica Desportista de Relaxamento</h3>
-                  <p>Pressão precisa e alongamento para soltura muscular, alívio de câimbras e recuperação pós-treino.</p>
+                  <p>Soltura muscular e recuperação pós-treino.</p>
                 </div>
                 <button type="button" class="m-link" data-pick="Técnica Desportista">Agendar esta <i>→</i></button>
               </div>
@@ -955,7 +954,7 @@
               <div class="m-body">
                 <div>
                   <h3>Liberação Miofascial</h3>
-                  <p>Atuação profunda na fáscia para soltar contraturas, pontos de tensão e melhorar a mobilidade.</p>
+                  <p>Solta contraturas e devolve a mobilidade.</p>
                 </div>
                 <button type="button" class="m-link" data-pick="Liberação Miofascial">Agendar esta <i>→</i></button>
               </div>
@@ -971,7 +970,7 @@
               <div class="m-body">
                 <div>
                   <h3>Massagem Relaxante (Relax Time)</h3>
-                  <p>Manobras suaves com óleos essenciais para reduzir o estresse, desacelerar e renovar o sono.</p>
+                  <p>Óleos essenciais para desacelerar.</p>
                 </div>
                 <button type="button" class="m-link" data-pick="Massagem Relaxante">Agendar esta <i>→</i></button>
               </div>
@@ -987,7 +986,7 @@
               <div class="m-body">
                 <div>
                   <h3>Drenagem Linfática Manual (1h)</h3>
-                  <p>Reduz retenção de líquidos e inchaço, libera toxinas e devolve leveza imediata ao corpo.</p>
+                  <p>Menos inchaço, mais leveza.</p>
                 </div>
                 <button type="button" class="m-link" data-pick="Drenagem Linfática 1h">Agendar esta <i>→</i></button>
               </div>
@@ -999,7 +998,7 @@
 
     <!-- COMO FUNCIONA -->
     <section class="steps-sec dark" id="como-funciona">
-      <svg class="lotus steps-lotus" viewBox="0 0 120 80" aria-hidden="true"><path pathLength="1" d="M60 6C73 22 73 50 60 72C47 50 47 22 60 6Z"/><path pathLength="1" d="M60 72C44 62 33 44 35 20C50 28 58 46 60 72Z"/><path pathLength="1" d="M60 72C76 62 87 44 85 20C70 28 62 46 60 72Z"/><path pathLength="1" d="M60 72C39 73 17 60 6 40C27 37 48 50 60 72Z"/><path pathLength="1" d="M60 72C81 73 103 60 114 40C93 37 72 50 60 72Z"/></svg>
+      <svg class="lotus steps-lotus" viewBox="0 0 610 467" aria-hidden="true"><use href="#lt"/></svg>
       <div class="wrap">
         <div class="sec-head">
           <span class="kicker reveal">Como funciona</span>
@@ -1007,8 +1006,8 @@
         </div>
         <ol class="steps">
           <li class="step reveal"><b>Escolha a massagem</b><p>Desportista, miofascial, relaxante ou drenagem.</p></li>
-          <li class="step reveal"><b>Chame no WhatsApp</b><p>Combine dia, horário e local direto com a Rágila.</p></li>
-          <li class="step reveal"><b>Receba em casa</b><p>Casa, pousada, hotel ou lancha, com tudo montado.</p></li>
+          <li class="step reveal"><b>Chame no WhatsApp</b><p>Dia e local direto com a Rágila.</p></li>
+          <li class="step reveal"><b>Receba em casa</b><p>Ela leva tudo montado.</p></li>
         </ol>
         <div class="cities">
           <span class="reveal">São Paulo</span><span class="reveal">Ilhabela</span><span class="reveal">Ibiza</span>
@@ -1021,24 +1020,24 @@
       <div class="wrap">
         <div class="sec-head">
           <span class="kicker reveal">Rágila Nunes · @evohomecare</span>
-          <h2 class="split">Estrutura completa <span class="serif">até você.</span></h2>
+          <h2 class="split">Além da <span class="serif">massagem.</span></h2>
         </div>
 
         <ul class="perks">
           <li class="reveal">
             <span class="ico-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
             <b>Home Care VIP</b>
-            <p>Levamos maca profissional, enxoval higienizado e óleos essenciais para sua casa, pousada ou lancha.</p>
+            <p>Maca, enxoval e óleos inclusos.</p>
           </li>
           <li class="reveal">
             <span class="ico-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19l7-7"/></svg></span>
             <b>Estética &amp; Nutrição Esportiva</b>
-            <p>Cuidado integrado para performance física, recuperação muscular e bem-estar.</p>
+            <p>Performance e recuperação.</p>
           </li>
           <li class="reveal">
             <span class="ico-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><path d="M22 9v5"/></svg></span>
             <b>Cursos e Palestras</b>
-            <p>Vivências de bem-estar, treinamentos e palestras ministradas por Rágila Nunes.</p>
+            <p>Vivências e treinamentos com a Rágila.</p>
           </li>
         </ul>
       </div>
@@ -1048,14 +1047,13 @@
     <section class="agendar-sec dark" id="agendar">
       <div class="wrap">
         <div class="sec-head">
-          <span class="kicker reveal">Agendamento rápido</span>
+          <span class="kicker reveal">Agendar</span>
           <h2 class="split">Monte seu <span class="serif">atendimento.</span></h2>
         </div>
 
         <div class="planner-shell reveal">
           <div class="planner">
-            <h3>Escolha e chame no WhatsApp.</h3>
-            <div class="p-grid">
+                        <div class="p-grid">
               <div>
                 <div class="p-step">
                   <span class="p-label">Onde será o atendimento</span>
@@ -1081,7 +1079,7 @@
                 <div class="p-step">
                   <span class="p-label">Quantidade de pessoas</span>
                   <div class="counter">
-                    <b>Pessoas / Sessões<small>Individual, casal ou grupo</small></b>
+                    <b>Pessoas<small>Individual, casal ou grupo</small></b>
                     <div class="stepper">
                       <button type="button" id="btnMenos" aria-label="Menos uma pessoa">−</button>
                       <output id="cPessoas">1</output>
@@ -1116,7 +1114,7 @@
         </picture>
       </div>
       <div class="wrap">
-        <svg class="lotus" id="finalLotus" viewBox="0 0 120 80" aria-hidden="true"><path pathLength="1" d="M60 6C73 22 73 50 60 72C47 50 47 22 60 6Z"/><path pathLength="1" d="M60 72C44 62 33 44 35 20C50 28 58 46 60 72Z"/><path pathLength="1" d="M60 72C76 62 87 44 85 20C70 28 62 46 60 72Z"/><path pathLength="1" d="M60 72C39 73 17 60 6 40C27 37 48 50 60 72Z"/><path pathLength="1" d="M60 72C81 73 103 60 114 40C93 37 72 50 60 72Z"/></svg>
+        <svg class="lotus" id="finalLotus" viewBox="0 0 610 467" aria-hidden="true"><use href="#lt"/></svg>
         <h2 class="split">Seu corpo merece <span class="serif">esse tempo.</span></h2>
         <a class="btn btn-sage mag reveal" href="#agendar">Agendar sessão <span class="ico"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
       </div>
@@ -1127,7 +1125,7 @@
     <div class="wrap">
       <div class="foot">
         <div>
-          <a href="#topo" class="brand"><img src="img/logo-evo.webp" alt="" width="40" height="40" loading="lazy"><b>EVO CARE</b></a>
+          <a href="#topo" class="foot-logo" aria-label="Evo Care, voltar ao topo"><img src="img/logo-evo.svg" alt="Logo Evo Care" width="120" height="140" loading="lazy"></a>
           <p>Massoterapia integrativa e Home Care por Rágila Nunes.</p>
         </div>
         <div>
@@ -1262,7 +1260,7 @@
       }, { passive: true });
 
       (() => {
-        const lotusDone = () => document.querySelectorAll(".lotus path").forEach(p => { p.style.strokeDashoffset = 0; });
+        const lotusDone = () => document.querySelectorAll(".lotus").forEach(s => { s.style.strokeDashoffset = 0; s.style.fillOpacity = 1; });
         if (matchMedia("(prefers-reduced-motion: reduce)").matches || typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") { lotusDone(); return; }
         gsap.registerPlugin(ScrollTrigger);
         window.addEventListener("load", () => ScrollTrigger.refresh());
@@ -1305,8 +1303,8 @@
         gsap.to(".steps-lotus", { rotate: 18, yPercent: 30, ease: "none", scrollTrigger: { trigger: ".steps-sec", start: "top bottom", end: "bottom top", scrub: true } });
 
         /* Lótus se desenhando no scroll */
-        gsap.to(".steps-lotus path", { strokeDashoffset: 0, duration: 2.2, stagger: 0.12, ease: "power2.out", scrollTrigger: { trigger: ".steps-sec", start: "top 70%", once: true } });
-        gsap.to("#finalLotus path", { strokeDashoffset: 0, duration: 1.8, stagger: 0.12, ease: "power2.out", scrollTrigger: { trigger: "#finalLotus", start: "top 85%", once: true } });
+        gsap.timeline({ scrollTrigger: { trigger: ".steps-sec", start: "top 70%", once: true } }).to(".steps-lotus", { strokeDashoffset: 0, duration: 2.2, ease: "power2.out" }).to(".steps-lotus", { fillOpacity: 1, duration: 0.8 }, "-=0.5");
+        gsap.timeline({ scrollTrigger: { trigger: "#finalLotus", start: "top 85%", once: true } }).to("#finalLotus", { strokeDashoffset: 0, duration: 1.8, ease: "power2.out" }).to("#finalLotus", { fillOpacity: 1, duration: 0.6 }, "-=0.4");
 
         gsap.to(".progress", { scaleX: 1, ease: "none", scrollTrigger: { start: 0, end: "max", scrub: 0.3 } });
 
