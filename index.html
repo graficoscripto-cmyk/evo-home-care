@@ -51,9 +51,15 @@
       "name": "Protocolos Evo Care",
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Massagem com Pedras Quentes" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Liberação Miofascial" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Evo Miofascial & Articulações" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Massagem Relaxante" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drenagem Linfática Manual (1h)" } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drenagem Linfática Manual (1h)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Evo Reiki & Terapia Quântica" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Evo Gestante" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Evo Pós-Operatório" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Evo Facial" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Evo Ozonioterapia" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Evo Criomodelagem" } }
       ]
     },
     "sameAs": [
@@ -673,7 +679,7 @@
     .steps-lotus { position: absolute; right: -80px; top: 40px; width: 360px; height: 240px; opacity: 0.1; pointer-events: none; }
     .steps-lotus { stroke-width: 3; }
 
-    /* ESPECIALIDADES */
+    /* ESPECIALIDADES & PROTOCOLOS EVO */
     .perks-sec { background: linear-gradient(180deg, var(--mist) 0%, var(--paper) 100%); }
     .perks { list-style: none; display: grid; gap: 12px; }
     @media (min-width: 860px) { .perks { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
@@ -683,9 +689,13 @@
       background: var(--cream);
       box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 22px 46px -30px rgba(22, 26, 17, 0.35);
       transition: transform 400ms var(--spring);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
     }
     .perks li:hover { transform: translateY(-4px); }
-    .perks li span {
+    .perks li .ico-line {
       display: grid;
       place-items: center;
       width: 50px;
@@ -693,10 +703,68 @@
       border-radius: 16px;
       background: var(--mist);
       font-size: 23px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .perks li b { display: block; font-family: 'Bodoni Moda', serif; font-weight: 600; font-size: 22px; margin-bottom: 6px; color: var(--abyss); }
     .perks li p { font-size: 14.5px; color: var(--muted); }
+    .evo-tag {
+      display: inline-block;
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--olive);
+      background: rgba(120, 133, 87, 0.13);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .pill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .pill-tags span {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--mist);
+      color: var(--abyss);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .team-card .pill-tags span {
+      background: rgba(197, 208, 172, 0.12);
+      color: var(--cream);
+      border: 1px solid rgba(197, 208, 172, 0.22);
+    }
+    .mod-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .mod-bar span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(247, 245, 240, 0.06);
+      border: 1px solid rgba(197, 208, 172, 0.2);
+      color: var(--cream);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .mod-bar span::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sage-light);
+    }
 
     /* AGENDAR */
     .agendar-sec {
@@ -973,8 +1041,8 @@
       </a>
       <div class="nav-links">
         <a href="#massagens">Massagens</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#agendar">Agendar</a>
+        <a href="#especialidades">Protocolos Evo</a>
+        <a href="#como-funciona">Onde atendemos</a>
       </div>
       <a class="btn btn-sage" href="#agendar">Agendar</a>
     </nav>
@@ -1043,15 +1111,15 @@
           <div class="m-shell reveal">
             <article class="m-card">
               <div class="m-photo clip">
-                <img src="img/liberacao-miofascial-uhd.webp?v=3" alt="Mãos fazendo liberação miofascial profunda nas costas" width="1600" height="1200" loading="lazy" decoding="async">
+                <img src="img/liberacao-miofascial-uhd.webp?v=3" alt="Mãos fazendo liberação miofascial e manobras articulares nas costas" width="1600" height="1200" loading="lazy" decoding="async">
                 <span class="m-num">02</span>
               </div>
               <div class="m-body">
                 <div>
-                  <h3>Liberação Miofascial</h3>
-                  <p>Solta contraturas e devolve a mobilidade.</p>
+                  <h3>Evo Miofascial &amp; Articulações</h3>
+                  <p>Liberação, alongamento e soltura das articulações.</p>
                 </div>
-                <button type="button" class="m-link" data-pick="Liberação Miofascial">Agendar esta <i>→</i></button>
+                <button type="button" class="m-link" data-pick="Evo Miofascial">Agendar esta <i>→</i></button>
               </div>
             </article>
           </div>
@@ -1107,29 +1175,49 @@
           <g class="p" style="--k:2"><path d="M56 62c-3-9 5-16 21-16s24 7 20 16c-4 5-12 6-21 6s-17-1-20-6Z" fill="#C4AD94"/><path d="M64 54c6-2 11-3 17-3" stroke="#F7F5F0" stroke-opacity=".55" stroke-width="2" fill="none" stroke-linecap="round"/></g>
         </svg>
         <ol class="steps">
-          <li class="step reveal"><b>Escolha a massagem</b><p>Pedras quentes, miofascial, relaxante ou drenagem.</p></li>
-          <li class="step reveal"><b>Chame no WhatsApp</b><p>Dia e local direto com a Rágila.</p></li>
-          <li class="step reveal"><b>Receba em casa</b><p>Ela leva tudo montado.</p></li>
+          <li class="step reveal"><b>Escolha o protocolo</b><p>Massoterapia, terapias integrativas, pós-operatório ou estética Evo.</p></li>
+          <li class="step reveal"><b>Domicílio, Spas &amp; Empresas</b><p>Atendimentos em casa, hotéis, empresas, spas e eventos de bem-estar.</p></li>
+          <li class="step reveal"><b>Estrutura no local</b><p>Levamos maca e todo o cuidado até você.</p></li>
         </ol>
-                <div class="team-grid reveal">
+        <div class="team-grid reveal">
           <div class="team-card">
-            <span class="team-badge">São Paulo · Home Care</span>
-            <h3>Paula</h3>
-            <p>Atendimento exclusivo em residências, hotéis e spas na capital paulista.</p>
+            <span class="team-badge">São Paulo · Zona Sul e Oeste</span>
+            <h3>Paula Silva</h3>
+            <p>Fundadora Evo Care em parceria com Rágila.</p>
+            <div class="pill-tags">
+              <span>Domicílio</span>
+              <span>Empresas &amp; Spas</span>
+              <span>Eventos de bem-estar</span>
+            </div>
           </div>
           <div class="team-card">
             <span class="team-badge">Ilhabela · Litoral</span>
             <h3>Rágila Nunes</h3>
-            <p>Fundadora Evo Care, atendimentos em casas, pousadas e lanchas em Ilhabela.</p>
+            <p>Fundadora Evo Care, atendimentos em casas, pousadas, spas e lanchas.</p>
+            <div class="pill-tags">
+              <span>Domicílio &amp; Pousadas</span>
+              <span>Lanchas</span>
+              <span>Eventos</span>
+            </div>
           </div>
           <div class="team-card">
             <span class="team-badge">Ibiza · Temporada</span>
             <h3>Felipe</h3>
-            <p>Sessões de massoterapia integrativa e bem-estar em villas e iates em Ibiza.</p>
+            <p>Sessões de massoterapia integrativa e bem-estar em villas, hotéis e iates.</p>
+            <div class="pill-tags">
+              <span>Villas &amp; Hotéis</span>
+              <span>Iates</span>
+              <span>Eventos</span>
+            </div>
           </div>
         </div>
+        <div class="mod-bar reveal">
+          <span>Atendimento em domicílio</span>
+          <span>Empresas &amp; Spas</span>
+          <span>Eventos em geral de bem-estar</span>
+        </div>
         <div class="cities">
-          <span class="reveal">São Paulo · Paula</span><span class="reveal">Ilhabela · Rágila</span><span class="reveal">Ibiza · Felipe</span>
+          <span class="reveal">São Paulo (Sul e Oeste) · Paula Silva</span><span class="reveal">Ilhabela · Rágila Nunes</span><span class="reveal">Ibiza · Felipe</span>
         </div>
       </div>
     </section>
@@ -1139,25 +1227,93 @@
     <section class="perks-sec" id="especialidades">
       <div class="wrap">
         <div class="sec-head">
-          <span class="kicker reveal">Rágila Nunes · @evohomecare</span>
-          <h2 class="split">Além da <span class="serif">massagem.</span></h2>
+          <span class="kicker reveal">Atendimentos Oferecidos · Evo Care</span>
+          <h2 class="split">Protocolos <span class="serif">especializados.</span></h2>
         </div>
 
         <ul class="perks">
           <li class="reveal">
-            <span class="ico-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
-            <b>Home Care VIP</b>
-            <p>Maca, enxoval completo e atmosfera de spa inclusos.</p>
+            <div>
+              <span class="evo-tag">Energia &amp; Chakras</span>
+              <b>Evo Reiki &amp; Terapia Quântica</b>
+              <p>Realinhamento dos chakras e energização através das mãos.</p>
+            </div>
+            <button type="button" class="m-link" data-pick="Evo Reiki e Terapia Quântica">Agendar <i>→</i></button>
           </li>
           <li class="reveal">
-            <span class="ico-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19l7-7"/></svg></span>
-            <b>Estética &amp; Nutrição Esportiva</b>
-            <p>Performance e recuperação.</p>
+            <div>
+              <span class="evo-tag">Maternidade</span>
+              <b>Evo Gestante</b>
+              <p>Acompanhamento durante e após o parto com técnicas de drenagem e relaxamento.</p>
+            </div>
+            <button type="button" class="m-link" data-pick="Evo Gestante">Agendar <i>→</i></button>
           </li>
           <li class="reveal">
-            <span class="ico-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><path d="M22 9v5"/></svg></span>
-            <b>Cursos e Palestras</b>
-            <p>Vivências e treinamentos com a Rágila.</p>
+            <div>
+              <span class="evo-tag">Recuperação Cirúrgica</span>
+              <b>Evo Pós-Operatório</b>
+              <p>Acompanhamento de diversas cirurgias com drenagem e solturas específicas para cada caso.</p>
+            </div>
+            <button type="button" class="m-link" data-pick="Evo Pós-Operatório">Agendar <i>→</i></button>
+          </li>
+          <li class="reveal">
+            <div>
+              <span class="evo-tag">Mobilidade &amp; Alívio</span>
+              <b>Evo Miofascial &amp; Articulações</b>
+              <p>Técnica de liberação, alongamento e soltura das articulações.</p>
+            </div>
+            <button type="button" class="m-link" data-pick="Evo Miofascial">Agendar <i>→</i></button>
+          </li>
+          <li class="reveal">
+            <div>
+              <span class="evo-tag">Estética Facial</span>
+              <b>Evo Facial</b>
+              <div class="pill-tags">
+                <span>Limpeza de pele</span>
+                <span>Drenagem facial</span>
+                <span>Microagulhamento</span>
+                <span>Peelings</span>
+                <span>Hidratação e nutrição</span>
+              </div>
+            </div>
+            <button type="button" class="m-link" data-pick="Evo Facial">Agendar <i>→</i></button>
+          </li>
+          <li class="reveal">
+            <div>
+              <span class="evo-tag">Saúde Integrativa</span>
+              <b>Evo Ozonioterapia</b>
+              <p>Ozônio aplicado a diversos tratamentos terapêuticos e estéticos.</p>
+            </div>
+            <button type="button" class="m-link" data-pick="Evo Ozonioterapia">Agendar <i>→</i></button>
+          </li>
+          <li class="reveal">
+            <div>
+              <span class="evo-tag">Redução sem Dor</span>
+              <b>Evo Criomodelagem</b>
+              <p>Reduz até 25% da gordura localizada por sessão na região tratada, sem dor e sem invasão.</p>
+            </div>
+            <button type="button" class="m-link" data-pick="Evo Criomodelagem">Agendar <i>→</i></button>
+          </li>
+          <li class="reveal">
+            <div>
+              <span class="evo-tag">Onde Você Estiver</span>
+              <b>Domicílio, Spas &amp; Empresas</b>
+              <div class="pill-tags">
+                <span>Em domicílio</span>
+                <span>Empresas</span>
+                <span>Spas</span>
+                <span>Eventos de bem-estar</span>
+              </div>
+            </div>
+            <button type="button" class="m-link" data-pick="Eventos / Empresas">Consultar <i>→</i></button>
+          </li>
+          <li class="reveal">
+            <div>
+              <span class="evo-tag">Treinamentos</span>
+              <b>Cursos &amp; Vivências</b>
+              <p>Palestras, eventos de bem-estar e formação em saúde integrativa.</p>
+            </div>
+            <button type="button" class="m-link" data-pick="Eventos / Empresas">Consultar <i>→</i></button>
           </li>
         </ul>
       </div>
@@ -1180,18 +1336,25 @@
                   <span class="p-label">Onde será o atendimento</span>
                   <div class="p-opts" role="radiogroup" id="pLocal">
                     <button type="button" role="radio" aria-checked="true" data-v="Ilhabela">Ilhabela</button>
-                    <button type="button" role="radio" aria-checked="false" data-v="São Paulo">São Paulo</button>
+                    <button type="button" role="radio" aria-checked="false" data-v="São Paulo (Sul e Oeste)">SP · Sul/Oeste</button>
                     <button type="button" role="radio" aria-checked="false" data-v="Ibiza">Ibiza</button>
                   </div>
                 </div>
 
                 <div class="p-step">
-                  <span class="p-label">Massagem ou serviço</span>
+                  <span class="p-label">Protocolo ou serviço Evo</span>
                   <div class="p-opts-2" role="radiogroup" id="pTerapia">
                     <button type="button" role="radio" aria-checked="true" data-v="Pedras Quentes">Pedras Quentes</button>
-                    <button type="button" role="radio" aria-checked="false" data-v="Liberação Miofascial">Miofascial</button>
+                    <button type="button" role="radio" aria-checked="false" data-v="Evo Miofascial">Evo Miofascial</button>
                     <button type="button" role="radio" aria-checked="false" data-v="Massagem Relaxante">Relaxante</button>
                     <button type="button" role="radio" aria-checked="false" data-v="Drenagem Linfática 1h">Drenagem 1h</button>
+                    <button type="button" role="radio" aria-checked="false" data-v="Evo Reiki e Terapia Quântica">Evo Reiki &amp; Quântica</button>
+                    <button type="button" role="radio" aria-checked="false" data-v="Evo Gestante">Evo Gestante</button>
+                    <button type="button" role="radio" aria-checked="false" data-v="Evo Pós-Operatório">Evo Pós-Operatório</button>
+                    <button type="button" role="radio" aria-checked="false" data-v="Evo Facial">Evo Facial</button>
+                    <button type="button" role="radio" aria-checked="false" data-v="Evo Ozonioterapia">Evo Ozonioterapia</button>
+                    <button type="button" role="radio" aria-checked="false" data-v="Evo Criomodelagem">Evo Criomodelagem</button>
+                    <button type="button" role="radio" aria-checked="false" data-v="Eventos / Empresas">Eventos &amp; Empresas</button>
                   </div>
                 </div>
               </div>
@@ -1259,10 +1422,10 @@
         </div>
         <div>
           <h4>Atendimento</h4>
-          <ul><li>São Paulo</li><li>Ilhabela</li><li>Ibiza</li></ul>
+          <ul><li>São Paulo (Zona Sul e Oeste) · Paula Silva</li><li>Ilhabela · Rágila Nunes</li><li>Ibiza · Felipe</li><li>Domicílio, Empresas, Spas e Eventos</li></ul>
         </div>
       </div>
-      <div class="copy">© <span id="ano">2026</span> Evo Care — Rágila Nunes</div>
+      <div class="copy">© <span id="ano">2026</span> Evo Care — Rágila Nunes &amp; Paula Silva</div>
     </div>
   </footer>
 
@@ -1327,7 +1490,7 @@
 
       /* Simulador */
       const WA = "5511979833078";
-      const terapeutas = { "Ilhabela": "Rágila Nunes", "São Paulo": "Paula (Home Care)", "Ibiza": "Felipe" };
+      const terapeutas = { "Ilhabela": "Rágila Nunes", "São Paulo (Sul e Oeste)": "Paula Silva", "Ibiza": "Felipe" };
       const state = { local: "Ilhabela", terapia: "Pedras Quentes", pessoas: 1, data: "" };
       const cPessoas = $("cPessoas"), resumo = $("pResumo"), cta = $("pCta");
       { const h = new Date(); $("pData").min = new Date(h - h.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); }
