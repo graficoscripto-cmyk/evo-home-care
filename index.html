@@ -1490,6 +1490,7 @@
       /* Simulador */
       const WA = "5511979833078";
       const terapeutas = { "Ilhabela": "Rágila Nunes", "São Paulo - Sul | Oeste": "Paula Silva", "Ibiza": "Felipe" };
+      const numeros = { "Ilhabela": WA, "São Paulo - Sul | Oeste": "5511960874566", "Ibiza": "447525241668" };
       const state = { local: "Ilhabela", terapia: "Evo Pedras Quentes", pessoas: 1, data: "" };
       const cPessoas = $("cPessoas"), resumo = $("pResumo"), cta = $("pCta");
       { const h = new Date(); $("pData").min = new Date(h - h.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); }
@@ -1502,8 +1503,8 @@
         const dia = state.data ? state.data.split("-").reverse().join("/") : "";
         const prof = terapeutas[state.local] || "Rágila";
         resumo.textContent = `${state.terapia} em ${state.local} · Terapeuta: ${prof} · ${pTxt}${dia ? ` · ${dia}` : ""}`;
-        const msg = `Olá! Gostaria de agendar ${state.terapia} em ${state.local} (atendimento com ${prof}) para ${pTxt}${dia ? ` no dia ${dia}` : ""}.`;
-        cta.href = `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+        const msg = `Olá, ${prof.split(" ")[0]}! Gostaria de agendar ${state.terapia} em ${state.local} (atendimento com ${prof}) para ${pTxt}${dia ? ` no dia ${dia}` : ""}.`;
+        cta.href = `https://wa.me/${numeros[state.local] || WA}?text=${encodeURIComponent(msg)}`;
       }
       const bump = () => { cPessoas.classList.remove("bump"); void cPessoas.offsetWidth; cPessoas.classList.add("bump"); };
       const pickIn = (groupId, v) => document.querySelectorAll(`#${groupId} button`).forEach(x => x.setAttribute("aria-checked", String(x.dataset.v === v)));
